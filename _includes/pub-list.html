@@ -1,0 +1,47 @@
+{% include base_path %}
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    <div class="archive__item-content">
+      <div class="archive__item-text">
+        <h3 class="archive__item-title" itemprop="headline" style="margin-bottom: 0.3em;">
+          {% if post.paper %}
+            <a href="{{ post.paper }}" style="font-weight: 700; color: var(--brand-color);">{{ post.title }}</a>
+          {% else %}
+            <span style="font-weight: 700; color: var(--brand-color);">{{ post.title }}</span>
+          {% endif %}
+        </h3>
+
+        {% if post.authors %}
+          <p class="archive__item-authors" style="margin-bottom: 0.3em; font-size: 0.95em;">{{ post.authors | replace: "Jieyi Wang", "<strong>Jieyi Wang</strong>" | replace: "Wang J.", "<strong>Wang J.</strong>" }}</p>
+        {% endif %}
+
+        <p class="archive__item-venue" style="margin-bottom: 0.5em; font-size: 0.9em;">
+          {% if post.venue %}
+            <span class="archive__item-tag" style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 600; margin-right: 8px;">{{ post.venue }}</span>
+          {% endif %}
+          {{ post.year }}
+        </p>
+
+        {% if post.excerpt %}
+          <p class="archive__item-excerpt" itemprop="description" style="font-size: 0.9em; line-height: 1.5; margin-bottom: 0.8em;">{{ post.excerpt }}</p>
+        {% endif %}
+
+        <div class="archive__item-buttons" style="margin-top: 0.5em;">
+          {% if post.paper %}
+            <a href="{{ post.paper }}" class="btn btn--info btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-file-pdf"></i> Paper</a>
+          {% endif %}
+          {% if post.code %}
+            <a href="{{ post.code }}" class="btn btn--warning btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-code"></i> Code</a>
+          {% endif %}
+          {% if post.demo %}
+            <a href="{{ post.demo }}" class="btn btn--warning btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-play"></i> Demo</a>
+          {% endif %}
+          {% if post.dataset %}
+            <a href="{{ post.dataset }}" class="btn btn--inverse btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-database"></i> Dataset</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

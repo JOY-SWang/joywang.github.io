@@ -42,9 +42,9 @@
           {% endif %}
         </p>
 
-        <p class="archive__item-venue" style="margin-bottom: 0.5em; font-size: 0.9em; color: #666;">
+        <p class="archive__item-venue" style="margin-bottom: 0.5em; font-size: 0.9em;">
           {% if post.venue %}
-            <span class="archive__item-tag" style="display: inline-block; padding: 2px 8px; background: #eef2f7; color: #445566; border-radius: 4px; font-weight: 600; margin-right: 8px;">{{ post.venue }}</span>
+            <span class="archive__item-tag" style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 600; margin-right: 8px;">{{ post.venue }}</span>
           {% endif %}
           {{ post.date | default: "1900-01-01" | date: "%Y" }}
         </p>

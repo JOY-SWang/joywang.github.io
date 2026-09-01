@@ -1,0 +1,170 @@
+{% include base_path %}
+{% assign home = site.data.homepage %}
+{% assign experiences = site.teaching | sort: "date" | reverse %}
+
+<div class="joy-home">
+  <section class="joy-hero" id="top">
+    <canvas id="joy-net" aria-hidden="true"></canvas>
+    <div class="joy-hero__veil"></div>
+    <div class="joy-wrap joy-hero__grid">
+      <div class="joy-hero__copy">
+        <p class="joy-eyebrow">{{ home.eyebrow }}</p>
+        <h1 class="joy-name">
+          {{ home.name }}
+          <span>{{ home.name_cn }}</span>
+        </h1>
+        <p class="joy-lead">
+          {{ home.lead_before }}
+          <em id="joy-rotate" data-words="{{ home.rotate_words | join: '|' }}">{{ home.rotate_words.first }}</em>
+          {{ home.lead_after }}
+        </p>
+        <div class="joy-status">
+          <span class="joy-pulse" aria-hidden="true"></span>
+          {{ home.status }}
+        </div>
+        <ul class="joy-chips">
+          {% for chip in home.chips %}
+            <li>{{ chip }}</li>
+          {% endfor %}
+        </ul>
+        <div class="joy-cta">
+          {% for btn in home.buttons %}
+            {% assign href = btn.url %}
+            {% unless href contains "://" or href contains "mailto:" %}
+              {% assign href = href | prepend: base_path %}
+            {% endunless %}
+            <a class="joy-btn{% if btn.style == 'solid' %} joy-btn--solid{% endif %}" href="{{ href }}">{{ btn.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <aside class="joy-hero__portrait">
+        <div class="joy-frame">
+          <img src="{{ home.portrait | prepend: '/images/' | prepend: base_path }}" alt="Portrait of {{ home.name }}" width="420" height="420">
+        </div>
+        <p class="joy-frame__caption">{{ home.portrait_caption }}</p>
+      </aside>
+    </div>
+    <a class="joy-scroll" href="#research" aria-label="Scroll to research">
+      <span></span>
+    </a>
+  </section>
+
+  <section class="joy-band">
+    <div class="joy-wrap joy-stats">
+      {% for item in home.stats %}
+        <div>
+          <strong>{{ item.title }}</strong>
+          <span>{{ item.note }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="joy-section" id="research">
+    <div class="joy-wrap">
+      <header class="joy-section__head">
+        <p>{{ home.research.kicker }}</p>
+        <h2>{{ home.research.title }}</h2>
+        <p class="joy-section__dek">{{ home.research.dek }}</p>
+      </header>
+      <div class="joy-focus">
+        {% for item in home.research.items %}
+          <article>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="joy-section joy-section--alt" id="publications">
+    <div class="joy-wrap">
+      <header class="joy-section__head">
+        <p>{{ home.papers.kicker }}</p>
+        <h2>{{ home.papers.title }}</h2>
+        <a class="joy-inline" href="{{ base_path }}/publications/">{{ home.papers.more }}</a>
+      </header>
+      <div class="joy-pubs">
+        {% for post in home.publications %}
+          <article class="joy-pub{% if post.featured %} is-featured{% endif %}">
+            <div class="joy-pub__meta">
+              {% if post.venue %}<span>{{ post.venue }}</span>{% endif %}
+              {% if post.year %}<time>{{ post.year }}</time>{% endif %}
+            </div>
+            <h3>
+              {% if post.paper %}
+                <a href="{{ post.paper }}">{{ post.title }}</a>
+              {% else %}
+                {{ post.title }}
+              {% endif %}
+            </h3>
+            {% if post.excerpt %}
+              <p>{{ post.excerpt }}</p>
+            {% endif %}
+            <div class="joy-pub__links">
+              {% if post.paper %}<a href="{{ post.paper }}">Paper</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}">Code</a>{% endif %}
+              {% if post.demo %}<a href="{{ post.demo }}">Demo</a>{% endif %}
+              {% if post.dataset %}<a href="{{ post.dataset }}">Dataset</a>{% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="joy-section" id="experience">
+    <div class="joy-wrap">
+      <header class="joy-section__head">
+        <p>{{ home.experience.kicker }}</p>
+        <h2>{{ home.experience.title }}</h2>
+        <a class="joy-inline" href="{{ base_path }}/teaching/">{{ home.experience.more }}</a>
+      </header>
+      <ol class="joy-timeline">
+        {% for post in experiences %}
+          <li>
+            <div class="joy-timeline__when">{{ post.date | date: "%Y" }}</div>
+            <div class="joy-timeline__body">
+              <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+              {% if post.venue %}<p class="joy-timeline__venue">{{ post.venue }}</p>{% endif %}
+              {% if post.advisor %}<p class="joy-timeline__advisor">Advisor: {{ post.advisor }}</p>{% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </section>
+
+  <section class="joy-section joy-section--alt" id="beyond">
+    <div class="joy-wrap">
+      <header class="joy-section__head">
+        <p>{{ home.beyond.kicker }}</p>
+        <h2>{{ home.beyond.title }}</h2>
+      </header>
+      <div class="joy-beyond">
+        {% for item in home.beyond.items %}
+          <article>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="joy-section joy-contact" id="contact">
+    <div class="joy-wrap">
+      <header class="joy-section__head">
+        <p>{{ home.contact.kicker }}</p>
+        <h2>{{ home.contact.title }}</h2>
+        <p class="joy-section__dek">{{ home.contact.dek }}</p>
+      </header>
+      <div class="joy-contact__row">
+        {% for item in home.contact.links %}
+          <a href="{{ item.url }}"{% if item.url contains "http" %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>

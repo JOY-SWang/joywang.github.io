@@ -39,7 +39,10 @@
           <li><a href="{{ author.googlescholar }}"><i class="ai ai-google-scholar ai-fw" title="Google Scholar"></i></a></li>
         {% endif %}
         {% if author.github %}
-          <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true" title="GitHub"></i></a></li>
+          <li><a href="{% if author.github contains 'http' %}{{ author.github }}{% else %}https://github.com/{{ author.github }}{% endif %}"><i class="fab fa-fw fa-github" aria-hidden="true" title="GitHub"></i></a></li>
+        {% endif %}
+        {% if author.xiaohongshu %}
+          <li><a href="{{ author.xiaohongshu }}" target="_blank" rel="noopener" title="小红书">🍠</a></li>
         {% endif %}
         {% if author.orcid %}
           <li><a href="{{ author.orcid }}"><i class="ai ai-orcid ai-fw" title="ORCID"></i></a></li>

@@ -1,0 +1,173 @@
+# =============================================================================
+# 改首页：只编辑这一个文件。
+# 论文直接写在下面的 publications: 列表里（新的插到最上面）。
+# 经历仍从 _teaching/ 读入。
+# =============================================================================
+
+name: "Jieyi Wang"
+name_cn: "王洁怡 / Joy"
+eyebrow: "National University of Singapore · Ph.D. Student"
+status: "Ph.D. student at NUS"
+portrait: "profile.png"
+portrait_caption: "Ph.D. student at the National University of Singapore"
+
+# 中间会轮换的词，对应 lead 里的强调部分
+rotate_words:
+  - agents
+  - speech models
+  - counseling systems
+  - trustworthy AI
+
+lead_before: "I build"
+lead_after: "that listen, reason, and care — spanning large language models, reinforcement learning, and medical AI."
+
+chips:
+  - "LLM Agents"
+  - "RLHF / RLAIF"
+  - "Trustworthy AI"
+  - "Medical & Mental Health"
+  - "Speech & Multimodal"
+
+buttons:
+  - label: "Email me"
+    url: "mailto:joywangjy@u.nus.edu"
+    style: "solid"
+  - label: "CV"
+    url: "/files/CV_Informal.pdf"
+  - label: "Publications"
+    url: "/publications/"
+
+stats:
+  - title: "AAAI 2025"
+    note: "Oral presentation"
+  - title: "ICML · ACL"
+    note: "2026 publications"
+  - title: "NUS"
+    note: "Ph.D. in progress"
+  - title: "PKU · UPenn · CUHK"
+    note: "Labs across medicine & AI"
+
+research:
+  kicker: "01 — Focus"
+  title: "Research interests"
+  dek: "I work where language models meet high-stakes human care: agents that plan, audio models that perceive, and systems that stay robust when the clinic is messy."
+  items:
+    - title: "Large language model agents"
+      text: "Multi-agent workflows, reinforcement learning from human and AI feedback, and models that know when to think longer."
+    - title: "Trustworthy AI"
+      text: "Robustness, interpretability, and safety for domains where a wrong answer is not just a bad demo."
+    - title: "Medical & mental health AI"
+      text: "Diagnostics, counseling dialogue, speech consultation, and tools meant for social good rather than spectacle."
+
+papers:
+  kicker: "02 — Papers"
+  title: "Publications & preprints"
+  more: "All publications →"
+
+# 首页和 /publications/ 都读这里。顺序与简历 Selected Publications 一致。
+# category: conferences（会议）或 manuscripts（预印本/workshop）
+publications:
+  - title: "STAMPsy: Towards SpatioTemporal-Aware Mixed-Type Dialogues for Psychological Counseling"
+    year: 2025
+    venue: "AAAI 2025, Oral Presentation"
+    category: conferences
+    featured: true
+    excerpt: "Modeled evolving patient states across multi-session psychological counseling using event causality, non-verbal cues, and dynamic personas; built a dataset whose policies adapt counseling strategies to session-level feedback."
+    paper: "https://arxiv.org/abs/2412.16674"
+    authors: "Wang, J., Huang, Y., Liu, Z., Xu, D., Wang, C., Shi, X., ... & Huang, Y."
+
+  - title: "Listen, Pause, and Reason: Bridging Dual Perception and Pause-Based Reasoning in Complex Audio Understanding"
+    year: 2026
+    venue: "ACL Findings 2026"
+    category: conferences
+    excerpt: "Latent-state signals track confidence during multimodal reasoning; a GRPO-based framework jointly optimizes perceptual representations and latent reasoning with consistency- and efficiency-aware rewards."
+    paper: "https://arxiv.org/abs/2604.14806"
+    code: "https://github.com/JOY-SWang/R1-AQA-Omni"
+    dataset: "https://huggingface.co/datasets/Joysw909/AVQA"
+    authors: "Wang J., Niu Y., Xu D., ... & Wei Z."
+
+  - title: "SpeechMedAssist: Efficiently and Effectively Adapting Speech Language Model for Medical Consultation"
+    year: 2026
+    venue: "ACL 2026"
+    category: conferences
+    excerpt: "Non-textual clinical perception for acoustic cues such as coughing and emotional tone, with evaluation of factual errors and sycophancy in high-risk spoken consultations."
+    paper: "https://arxiv.org/abs/2601.04638"
+    demo: "https://sirrychen.github.io/share/2025-09-22-SpeechMedAssist.html"
+    code: "https://anonymous.4open.science/r/SpeechMedAssist-Anonymous/"
+    authors: "Chen S., Wang J., ... & Wei Z."
+
+  - title: "TIME: Tensor-Factorized Mixture-of-Experts with Intrinsic Routing for Lifelong Multimodal Knowledge Editing"
+    year: 2026
+    venue: "ICML 2026"
+    category: conferences
+    excerpt: "A tensor-factorized mixture-of-experts model with intrinsic routing for lifelong multimodal knowledge editing."
+    paper: "https://icml.cc/virtual/2026/poster/64179"
+    authors: "Xu, D., Wang, J., Li, S., ... & Huang, Y."
+
+  - title: "BioInsight: Multi-Agent Orchestration for Interactive Biomedical Knowledge Discovery"
+    year: 2026
+    venue: "COLM 2026 LM4Sci Workshop"
+    category: manuscripts
+    excerpt: "A multi-agent system that orchestrates retrieval, reasoning, and synthesis for interactive biomedical knowledge discovery."
+    paper: "https://arxiv.org/abs/2606.20997"
+    authors: "Wang, J., Li, B., Jiang, N., Meng, D., ... , Lu, P., Zhao, B."
+
+  - title: "MedMKEB: A Comprehensive Knowledge Editing Benchmark for Medical Multimodal Large Language Models"
+    year: 2026
+    venue: "AAAI 2026"
+    category: conferences
+    excerpt: "A medical multimodal knowledge-editing benchmark covering reliability, generality, locality, portability, and robustness, evaluated across 10+ editing methods."
+    paper: "https://arxiv.org/pdf/2508.05083"
+    authors: "Xu D., Wang J., Chai Z., ... & Hu Y. (with Dr. Huamin Zhang)"
+
+  - title: "MLeVLM: Improve Multi-level Progressive Capabilities based on Multimodal Large Language Model for Medical Visual Question Answering"
+    year: 2024
+    venue: "ACL 2024 Findings"
+    category: conferences
+    excerpt: "A multi-level visual language model for medical VQA, with the MLe-VQA dataset and a multi-level feature alignment module."
+    paper: "https://aclanthology.org/2024.findings-acl.296.pdf"
+    authors: "Xu, D.*, Chen, Y.*, Wang, J., Huang, Y., ... & Huang, Y."
+
+experience:
+  kicker: "03 — Path"
+  title: "Research experience"
+  more: "Full timeline →"
+
+beyond:
+  kicker: "04 — Off-hours"
+  title: "Beyond the lab"
+  items:
+    - title: "Volleyball"
+      text: "Blocker on the varsity team — timing, coverage, and playing for the person next to you."
+    - title: "Calligraphy"
+      text: "Certified at the highest level by China’s National Calligraphy Association."
+    - title: "Cooking"
+      text: "The other place I prototype: improvising in the kitchen the same way I do in a notebook."
+
+# 演示项目：导航 Demos 页从这里读取。
+demos:
+  - title: "BioInsight"
+    tag: "Live demo"
+    venue: "COLM 2026 LM4Sci Workshop"
+    text: "Multi-agent orchestration for interactive biomedical knowledge discovery — retrieval, reasoning, and synthesis over gene–disease evidence."
+    url: "http://3.148.244.109:5000/"
+    paper: "https://arxiv.org/abs/2606.20997"
+
+  - title: "CBTI-Agent"
+    tag: "Deployed"
+    venue: "PKU Xplore"
+    text: "A spatiotemporal-aware counseling agent for CBT-I, with external knowledge and ASR, released on Peking University’s academic platform."
+    url: "https://xplore.pku.edu.cn/"
+    code: "https://github.com/JOY-SWang/CBTI-Agent"
+
+contact:
+  kicker: "05 — Hello"
+  title: "Let’s talk"
+  dek: "Research collaborations, a note about a paper, or just saying hi — I read everything."
+  links:
+    - label: "joywangjy@u.nus.edu"
+      url: "mailto:joywangjy@u.nus.edu"
+    - label: "github.com/JOY-SWang"
+      url: "https://github.com/JOY-SWang"
+    - label: "🍠 小红书"
+      url: "https://xhslink.cn/o/5QDjR8XHGZa"
