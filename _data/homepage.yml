@@ -6,10 +6,10 @@
 
 name: "Jieyi Wang"
 name_cn: "王洁怡 / Joy"
-eyebrow: "National University of Singapore · Ph.D. Student"
+eyebrow: "PhD In Progress"
 status: "Ph.D. student at NUS"
 portrait: "profile.png"
-portrait_caption: "Ph.D. student at the National University of Singapore"
+portrait_caption: "Ph.D. student at National University of Singapore"
 
 # 中间会轮换的词，对应 lead 里的强调部分
 rotate_words:
@@ -38,14 +38,14 @@ buttons:
     url: "/publications/"
 
 stats:
-  - title: "AAAI 2025"
-    note: "Oral presentation"
-  - title: "ICML · ACL"
-    note: "2026 publications"
-  - title: "NUS"
-    note: "Ph.D. in progress"
-  - title: "PKU · UPenn · CUHK"
-    note: "Labs across medicine & AI"
+  - title: "AI × Health"
+    note: "Healthcare & Well-being"
+  - title: "Multimodal AI"
+    note: "Language & Audio"
+  - title: "Human-Centered AI"
+    note: "AI for People"
+  - title: "Adaptive Agents"
+    note: "Reasoning & Learning"
 
 research:
   kicker: "01 — Focus"
