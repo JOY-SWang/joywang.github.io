@@ -60,6 +60,26 @@
     </div>
   </section>
 
+  {% if home.news and home.news.items.size > 0 %}
+  <section class="joy-section joy-section--alt joy-section--tight" id="news">
+    <div class="joy-wrap">
+      <header class="joy-section__head">
+        <p>{{ home.news.kicker }}</p>
+        <h2>{{ home.news.title }}</h2>
+      </header>
+      {% assign news_limit = home.news.limit | default: 6 %}
+      <ul class="joy-news">
+        {% for item in home.news.items limit: news_limit %}
+          <li>
+            <time>{{ item.date }}</time>
+            <p>{{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
   <section class="joy-section" id="research">
     <div class="joy-wrap">
       <header class="joy-section__head">

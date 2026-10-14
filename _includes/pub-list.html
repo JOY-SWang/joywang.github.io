@@ -1,46 +1,34 @@
 {% include base_path %}
+{% assign pub_year = post.year | append: "" %}
 
-<div class="list__item">
+<div class="list__item pub-compact">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    <div class="archive__item-content">
-      <div class="archive__item-text">
-        <h3 class="archive__item-title" itemprop="headline" style="margin-bottom: 0.3em;">
-          {% if post.paper %}
-            <a href="{{ post.paper }}" style="font-weight: 700; color: var(--brand-color);">{{ post.title }}</a>
-          {% else %}
-            <span style="font-weight: 700; color: var(--brand-color);">{{ post.title }}</span>
-          {% endif %}
-        </h3>
+    <div class="archive__item-text">
+      <h3 class="archive__item-title" itemprop="headline">
+        {% if post.paper %}
+          <a href="{{ post.paper }}" {% if post.excerpt %}title="{{ post.excerpt | escape }}"{% endif %}>{{ post.title }}</a>
+        {% else %}
+          <span {% if post.excerpt %}title="{{ post.excerpt | escape }}"{% endif %}>{{ post.title }}</span>
+        {% endif %}
+      </h3>
 
+      <div class="pub-meta">
         {% if post.authors %}
-          <p class="archive__item-authors" style="margin-bottom: 0.3em; font-size: 0.95em;">{{ post.authors | replace: "Jieyi Wang", "<strong>Jieyi Wang</strong>" | replace: "Wang J.", "<strong>Wang J.</strong>" }}</p>
+          <span class="archive__item-authors">{{ post.authors | replace: "Jieyi Wang", "<strong>Jieyi Wang</strong>" | replace: "Wang, J.", "<strong>Wang, J.</strong>" | replace: "Wang J.", "<strong>Wang J.</strong>" }}</span>
         {% endif %}
 
-        <p class="archive__item-venue" style="margin-bottom: 0.5em; font-size: 0.9em;">
-          {% if post.venue %}
-            <span class="archive__item-tag" style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 600; margin-right: 8px;">{{ post.venue }}</span>
-          {% endif %}
-          {{ post.year }}
-        </p>
-
-        {% if post.excerpt %}
-          <p class="archive__item-excerpt" itemprop="description" style="font-size: 0.9em; line-height: 1.5; margin-bottom: 0.8em;">{{ post.excerpt }}</p>
+        {% if post.venue %}
+          <span class="pub-venue">{{ post.venue }}{% unless post.venue contains pub_year %} {{ pub_year }}{% endunless %}</span>
+        {% elsif post.year %}
+          <span class="pub-venue">{{ pub_year }}</span>
         {% endif %}
 
-        <div class="archive__item-buttons" style="margin-top: 0.5em;">
-          {% if post.paper %}
-            <a href="{{ post.paper }}" class="btn btn--info btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-file-pdf"></i> Paper</a>
-          {% endif %}
-          {% if post.code %}
-            <a href="{{ post.code }}" class="btn btn--warning btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-code"></i> Code</a>
-          {% endif %}
-          {% if post.demo %}
-            <a href="{{ post.demo }}" class="btn btn--warning btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-play"></i> Demo</a>
-          {% endif %}
-          {% if post.dataset %}
-            <a href="{{ post.dataset }}" class="btn btn--inverse btn--small" style="border-radius: 20px; padding: 4px 12px; margin-right: 5px;"><i class="fas fa-database"></i> Dataset</a>
-          {% endif %}
-        </div>
+        <span class="pub-links">
+          {% if post.paper %}<a href="{{ post.paper }}" class="btn btn--info btn--small"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+          {% if post.code %}<a href="{{ post.code }}" class="btn btn--warning btn--small"><i class="fas fa-code"></i> Code</a>{% endif %}
+          {% if post.demo %}<a href="{{ post.demo }}" class="btn btn--warning btn--small"><i class="fas fa-play"></i> Demo</a>{% endif %}
+          {% if post.dataset %}<a href="{{ post.dataset }}" class="btn btn--inverse btn--small"><i class="fas fa-database"></i> Dataset</a>{% endif %}
+        </span>
       </div>
     </div>
   </article>

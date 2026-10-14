@@ -47,8 +47,29 @@ stats:
   - title: "Adaptive Agents"
     note: "Reasoning & Learning"
 
+# 新闻：新的写在最上面；text 支持 Markdown（**加粗**、[链接](url)）。limit 控制首页显示条数。
+news:
+  kicker: "01 — News"
+  title: "Latest news"
+  limit: 6
+  items:
+    - date: "2026.08"
+      text: "Started my **Ph.D.** at the **National University of Singapore**."
+    - date: "2026.06"
+      text: "Graduated from **Peking University** — Outstanding Graduate & Outstanding Master Thesis."
+    - date: "2026"
+      text: "Two papers accepted to **ACL 2026**: *Listen, Pause, and Reason* (Findings) and *SpeechMedAssist*."
+    - date: "2026"
+      text: "*TIME* (lifelong multimodal knowledge editing) accepted to **ICML 2026**."
+    - date: "2026"
+      text: "*BioInsight* accepted to the **COLM 2026** LM4Sci Workshop."
+    - date: "2025"
+      text: "*MedMKEB* accepted to **AAAI 2026**."
+    - date: "2025.02"
+      text: "Presented *STAMPsy* as an **oral** at **AAAI 2025**."
+
 research:
-  kicker: "01 — Focus"
+  kicker: "02 — Focus"
   title: "Research interests"
   dek: "I work where language models meet high-stakes human care: agents that plan, audio models that perceive, and systems that stay robust when the clinic is messy."
   items:
@@ -60,7 +81,7 @@ research:
       text: "Diagnostics, counseling dialogue, speech consultation, and tools meant for social good rather than spectacle."
 
 papers:
-  kicker: "02 — Papers"
+  kicker: "03 — Papers"
   title: "Publications & preprints"
   more: "All publications →"
 
@@ -129,12 +150,12 @@ publications:
     authors: "Xu, D.*, Chen, Y.*, Wang, J., Huang, Y., ... & Huang, Y."
 
 experience:
-  kicker: "03 — Path"
+  kicker: "04 — Path"
   title: "Research experience"
   more: "Full timeline →"
 
 beyond:
-  kicker: "04 — Off-hours"
+  kicker: "05 — Off-hours"
   title: "Beyond the lab"
   items:
     - title: "Volleyball"
@@ -161,7 +182,7 @@ demos:
     code: "https://github.com/JOY-SWang/CBTI-Agent"
 
 contact:
-  kicker: "05 — Hello"
+  kicker: "06 — Hello"
   title: "Let’s talk"
   dek: "Research collaborations, a note about a paper, or just saying hi — I read everything."
   links:
