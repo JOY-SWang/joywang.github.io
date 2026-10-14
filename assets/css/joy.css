@@ -801,3 +801,65 @@ html[data-theme="dark"] .joy-demo .joy-btn {
 html[data-theme="dark"] .joy-home { color: #f3efe6; }
 html[data-theme="dark"] .joy-news time,
 html[data-theme="dark"] .joy-news a { color: var(--joy-teal-2); }
+
+/* ===== Compact Research Experiences list (/teaching/) ===== */
+#main:has(.exp-compact) { max-width: 1120px; }
+.archive:has(.exp-compact) > .page__title { margin: 0 0 .5rem; }
+
+#main .exp-compact .archive__item {
+  margin: 0;
+  padding: .85rem .25rem .8rem;
+  border: 0;
+  border-bottom: 1px solid var(--joy-line);
+  border-radius: 0;
+  background: transparent;
+}
+#main .exp-compact:first-of-type .archive__item { border-top: 1px solid var(--joy-line); }
+
+.exp-compact .archive__item-text { font-size: 14px; line-height: 1.55; }
+.exp-compact .archive__item-title {
+  margin: 0 0 .2em !important;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.exp-compact .archive__item-title a { color: var(--brand-color); }
+.exp-compact .archive__item-authors { margin: 0 0 .25rem; font-size: 13px; }
+
+.exp-compact .exp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem;
+  margin: 0 0 .3rem;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.exp-compact .exp-venue {
+  padding: 0 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--brand-color);
+  background: color-mix(in srgb, var(--brand-color) 12%, transparent);
+}
+.exp-compact .exp-year { color: var(--joy-muted); font-variant-numeric: tabular-nums; }
+.exp-compact .exp-advisor { margin: 0 0 .3rem; font-size: 13px; line-height: 1.5; color: var(--joy-muted); }
+.exp-compact .exp-advisor strong { color: inherit; font-weight: 600; }
+
+.exp-compact .archive__item-excerpt { margin: 0; font-size: 14px; line-height: 1.55; }
+.exp-compact .archive__item-excerpt p { margin: 0; }
+.exp-compact .archive__item-excerpt ul { margin: .3rem 0 0 1.1rem; padding: 0; }
+.exp-compact .archive__item-excerpt li { margin: 0 0 .15rem; font-size: 13.5px; line-height: 1.5; }
+.exp-compact .archive__item-excerpt li:last-child { margin-bottom: 0; }
+
+.exp-compact .exp-links { margin-top: .4rem; }
+.exp-compact .exp-links .btn { margin: 0 2px 0 0; padding: 0 8px; border-radius: 20px; font-size: 11.5px; line-height: 1.6; }
+
+.exp-compact .exp-showcase { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; }
+.exp-compact .exp-showcase img {
+  width: auto;
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}

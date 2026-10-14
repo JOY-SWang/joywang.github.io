@@ -1,0 +1,53 @@
+{% include base_path %}
+{% comment %} Compact entry for the Research Experiences (/teaching/) page. Shows everything archive-single.html shows. {% endcomment %}
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="list__item exp-compact">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    <div class="archive__item-text">
+      <h3 class="archive__item-title" itemprop="headline">
+        {% if post.link %}
+          <a href="{{ post.link }}">{{ title }}</a>
+        {% else %}
+          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+        {% endif %}
+      </h3>
+
+      {% if post.citation %}
+        <p class="archive__item-authors">{{ post.citation | replace: "Jieyi Wang", "<strong>Jieyi Wang</strong>" | replace: "J. Wang", "<strong>J. Wang</strong>" }}</p>
+      {% endif %}
+
+      <div class="exp-meta">
+        {% if post.venue %}<span class="exp-venue">{{ post.venue }}</span>{% endif %}
+        <span class="exp-year">{{ post.date | default: "1900-01-01" | date: "%Y" }}</span>
+      </div>
+
+      {% if post.advisor %}
+        <p class="exp-advisor"><i class="fas fa-fw fa-user-tie" aria-hidden="true"></i> <strong>Advisor:</strong> {{ post.advisor }}</p>
+      {% endif %}
+
+      {% if post.excerpt %}
+        <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
+      {% endif %}
+
+      {% if post.paperurl or post.slidesurl or post.bibtexurl %}
+        <div class="exp-links">
+          {% if post.paperurl %}<a href="{{ post.paperurl }}" class="btn btn--info btn--small"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
+          {% if post.slidesurl %}<a href="{{ post.slidesurl }}" class="btn btn--warning btn--small"><i class="fas fa-code"></i> Code/Demo</a>{% endif %}
+          {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}" class="btn btn--inverse btn--small"><i class="fas fa-ellipsis-h"></i> Others</a>{% endif %}
+        </div>
+      {% endif %}
+
+      {% if post.image1 or post.image2 %}
+        <div class="exp-showcase">
+          {% if post.image1 %}<img src="{{ post.image1 | prepend: base_path }}" alt="" loading="lazy">{% endif %}
+          {% if post.image2 %}<img src="{{ post.image2 | prepend: base_path }}" alt="" loading="lazy">{% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </article>
+</div>
